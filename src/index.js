@@ -106,6 +106,7 @@ function displayLocalDog(dog) {
 
   //adding local dog name
   const localDogName = document.createElement("h2");
+  localDogName.setAttribute("id", "local-dog-name-text");
   localDogName.innerHTML = `@${dog.name}`;
 
   //adding likes button
@@ -136,7 +137,7 @@ function displayLocalDog(dog) {
 
   //adding local dog caption
   const localDogCaption = document.createElement("p");
-  localDogCaption.innerHTML = dog.caption;
+  localDogCaption.innerHTML = `"${dog.caption}"`;
 
   //✏️ adding barks (comments)
   const commentsDiv = document.createElement("div");

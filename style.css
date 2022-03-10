@@ -68,7 +68,6 @@ body {
 }
 /* //--------------------🦴 🦴 🦴  Create User Section 🦴 🦴 🦴--------------------// */
 /* //--------------------🦴 🦴 🦴 Online Friends Section 🦴 🦴 🦴--------------------// */
-
 #friends-div {
   display: flex;
   justify-content: flex-start;
@@ -88,6 +87,10 @@ body {
   padding-right: 20px;
   border-radius: 10%;
 }
+.local-dog-card p {
+  font-family: "Gravitas One", cursive;
+  font-size: 1.5rem;
+}
 .local-dog-img {
   width: 250px;
   height: 200px;
@@ -101,7 +104,19 @@ body {
   align-items: center;
   gap: 20px;
 }
+.like-name-div h2 {
+  font-size: 1.4rem;
+}
+#local-dog-name-text {
+  color: blue;
+  font-family: "Pacifico", cursive;
+}
 #online-gif {
-  height: 12px;
+  height: 1.7rem;
   filter: invert(40%);
+}
+#like-button:hover {
+  background-color: grey;
+  color: white;
+  cursor: pointer;
 }
