@@ -146,16 +146,16 @@ body {
 .hidden {
   display: none;
 }
-.form {
+.new-user-form {
   margin: auto;
   width: 12.5%;
   display: flex;
   flex-direction: column;
 }
-.form label {
+.new-user-form label {
   padding-top: 10px;
 }
-.form button {
+#input-submit-button {
   margin-top: 15px;
   width: 50%;
 }

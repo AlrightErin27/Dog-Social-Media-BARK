@@ -87,12 +87,12 @@ createProfileBtn.addEventListener("click", () => {
   profile = !profile;
   if (!profile) {
     profileDiv.style.display = "block";
-    console.log("see the profile");
+    //console.log("see the profile");
 
     const newUserForm = document.createElement("form");
     newUserForm.setAttribute("method", "post");
     newUserForm.setAttribute("action", "submit");
-    //newUserForm.setAttribute("font-family", "Manrope, sans-serif");
+    newUserForm.setAttribute("class", "new-user-form");
     profileDiv.append(newUserForm);
 
     //create input for form
@@ -127,25 +127,33 @@ createProfileBtn.addEventListener("click", () => {
     newUserSubmitBtn.addEventListener("click", (e) => {
       e.preventDefault();
 
-      let newDogObject = {
-        name: nameInput.value,
-        image: imgInput.value,
-        caption: captionInput.value,
-        likes: 0,
-        comments: [],
-      };
+      if (
+        nameInput.value === "" ||
+        imgInput.value === "" ||
+        captionInput.value === ""
+      ) {
+        alert("Need more new user info!");
+      } else {
+        let newDogObject = {
+          name: nameInput.value,
+          image: imgInput.value,
+          caption: captionInput.value,
+          likes: 0,
+          comments: [],
+        };
 
-      fetch(`${localDogAPI}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(newDogObject),
-      })
-        .then((res) => res.json())
-        .then(displayLocalDog(newDogObject))
-        .catch((err) => console.log("ERROR️🐕⚠️:", err));
+        fetch(`${localDogAPI}`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(newDogObject),
+        })
+          .then((res) => res.json())
+          .then(displayLocalDog(newDogObject))
+          .catch((err) => console.log("ERROR️🐕⚠️:", err));
+      }
 
       newUserForm.reset();
     });
