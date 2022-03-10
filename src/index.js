@@ -128,7 +128,7 @@ function displayLocalDog(dog) {
   //adding likes button
   const likeBtn = document.createElement("button");
   likeBtn.setAttribute("id", "like-button");
-  likeBtn.innerHTML = "Like";
+  likeBtn.innerHTML = "💙";
 
   //✏️ put localDogName & localDogLikes into likeNameDiv
   likeNameDiv.append(localDogLikes, localDogName, likeBtn);
