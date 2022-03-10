@@ -25,14 +25,14 @@ body {
   font-family: "Pacifico", cursive;
   padding-top: 1.8rem;
 }
-/* //--------------------🦴 🦴 🦴  News / Good-est Dog 🦴 🦴 🦴--------------------// */
+/* //--------------------🦴 🦴 🦴  News / Goodest Dog 🦴 🦴 🦴--------------------// */
 #news-div {
   background-color: rgba(255, 0, 0, 0.733);
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   width: 550px;
   max-height: 800px;
   border-radius: 20px;
@@ -40,11 +40,22 @@ body {
   z-index: 1000;
   position: absolute;
   top: 3rem;
-  right: 4rem;
+  right: 8rem;
+  text-align: center;
+
+  /* FLASHING BACKGROUND */
+  animation: blinkingBackground 0.2s infinite;
 }
-#random-name {
-  font-family: "Pacifico", cursive;
-  font-size: 2rem;
+@keyframes blinkingBackground {
+  0% {
+    background-color: #f5f8f5;
+  }
+  25% {
+    background-color: #c01010;
+  }
+  100% {
+    background-color: #ab2c2855;
+  }
 }
 #news-div img {
   width: 250px;
@@ -55,3 +66,5 @@ body {
 #news-div button {
   margin: 10px;
 }
+/* //--------------------🦴 🦴 🦴  Create User Section 🦴 🦴 🦴--------------------// */
+/* //--------------------🦴 🦴 🦴 Online Friends Section 🦴 🦴 🦴--------------------// */

@@ -36,7 +36,7 @@ const randomName = dogNameArr[Math.floor(Math.random() * dogNameArr.length)];
 //console.log(randomName);
 
 //render random name & image to page
-randomNameTitle.innerHTML = randomName;
+randomNameTitle.innerHTML = `Barking News! Today's Goodest Dog is ${randomName}`;
 
 //fetch a random dog image from dog.ceo API
 function fetchRadomDogImg() {
