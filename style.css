@@ -51,6 +51,16 @@ body {
 }
 #news-div button {
   margin: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 1rem;
+}
+#news-div button:hover {
+  cursor: pointer;
+  font-size: 3rem;
+  padding: 0.44rem;
 }
 /* //--------------------🦴 🦴 🦴  Create User Section 🦴 🦴 🦴--------------------// */
 #create-button-div {
