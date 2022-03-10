@@ -64,7 +64,7 @@ closeBtn.addEventListener("click", (e) => {
     newsDiv.style.display = "none";
   }
 });
-newsDiv.style.display = "none"; //<-----------------------------------TEMP HIDE BARKING NEWS
+
 //--------------🦴 🦴 🦴       Fetch Dogs from Local API      🦴 🦴 🦴--------------//
 //fetch info from local API in db.json
 const localDogAPI = "http://localhost:3000/dogs";
