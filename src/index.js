@@ -6,6 +6,7 @@ const newsDiv = document.querySelector("#news-div");
 const randomNameTitle = document.querySelector("#random-name");
 const randomImg = document.querySelector("#random-img");
 const closeBtn = document.querySelector("#close-button");
+
 const dogNameArr = [
   "Toby",
   "Oprah",
@@ -63,21 +64,15 @@ closeBtn.addEventListener("click", (e) => {
     newsDiv.style.display = "none";
   }
 });
-
-//--------------🦴 🦴 🦴       Fetch from Local API      🦴 🦴 🦴--------------//
+newsDiv.style.display = "none"; //<-----------------------------------TEMP HIDE BARKING NEWS
+//--------------🦴 🦴 🦴       Fetch Dogs from Local API      🦴 🦴 🦴--------------//
 //fetch info from local API in db.json
 const localDogAPI = "http://localhost:3000/dogs";
-const localDogCommentsAPI = "http://localhost:3000/comments";
 
 fetch(localDogAPI)
   .then((res) => res.json())
   .then(renderLocalDogs) //in Friends Section
   .catch((error) => console.log("😬", error));
-
-fetch(localDogCommentsAPI)
-  .then((res) => res.json())
-  .then(renderComments)
-  .catch((error) => console.log("😭", error));
 //--------------🦴 🦴 🦴       User Profile Section      🦴 🦴 🦴--------------//
 //creating dynamic JS to show form when button is clicked
 const profileDiv = document.querySelector("#profile-div");
@@ -161,23 +156,44 @@ function displayLocalDog(dog) {
   const commentsTitle = document.createElement("h3");
   commentsTitle.innerHTML = "Barks:";
   commentsDiv.append(commentsTitle);
-  //----------------------------	🥵	🥵	🥵	🥵	🥵	🥵adding area for comments
-  const br = document.createElement("br");
+
+  //create empty list for the comments to appear in
+  const cList = document.createElement("list");
+  commentsDiv.append(cList);
+
+  //loop through and render every comment that each local dog has to ul
+  function renderCommentsArr(arr) {
+    //console.log(arr);
+    for (let i = 0; i < arr.length; i++) {
+      const cListItem = document.createElement("li");
+      cListItem.innerHTML = arr[i];
+      cList.appendChild(cListItem);
+    }
+  }
+  renderCommentsArr(dog.comments);
+  //create comment form and ad to comment div
   const commentsForm = document.createElement("form");
   commentsForm.setAttribute("method", "post");
   commentsForm.setAttribute("action", "submit.php");
   commentsForm.setAttribute("font-family", "Manrope, sans-serif");
   commentsDiv.append(commentsForm);
+
+  //create input for form
   const commentInput = document.createElement("input");
   commentInput.setAttribute("type", "text");
   commentInput.setAttribute("name", "commentInput");
   commentInput.setAttribute("placeholder", "add comment here");
+
+  //create submit btn for form
   const commentSubmitBtn = document.createElement("input");
   commentSubmitBtn.setAttribute("type", "submit");
   commentSubmitBtn.setAttribute("value", "submit");
   commentSubmitBtn.innerHTML = "Submit";
+
+  //append comment & submit button to form
   commentsForm.appendChild(commentInput);
   commentsForm.appendChild(commentSubmitBtn);
+  ////////////////////////////////////////////////////////////
 
   //create online gif
   const onlineGif = document.createElement("img");
@@ -194,12 +210,4 @@ function displayLocalDog(dog) {
     localDogCaption,
     commentsDiv
   );
-}
-//render comments after loading dog profile cards
-function renderComments(comments) {
-  comments.forEach(displayComment);
-}
-//fxn displays singular comment
-function displayComment(comment) {
-  //
 }
