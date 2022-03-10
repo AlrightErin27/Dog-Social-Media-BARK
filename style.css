@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Manrope:wght@200&family=Pacifico&display=swap");
+/* font-family: "Manrope", sans-serif;
+font-family: "Pacifico", cursive;
+font-family: "Gravitas One", cursive; */
+
+body {
+  background-color: rgba(205, 222, 234, 0.695);
+  font-family: "Manrope", sans-serif;
+}
+/* //--------------------🦴 🦴 🦴  Title Section 🦴 🦴 🦴--------------------// */
+#title-div {
+  color: rgb(0, 0, 108);
+  display: flex;
+  gap: 2rem;
+  background-color: rgba(178, 223, 255, 0.311);
+}
+#title-div h1 {
+  font-size: 4rem;
+  font-family: "Gravitas One", cursive;
+  padding-left: 2rem;
+}
+#title-div p {
+  color: rgba(0, 0, 165, 0.695);
+  font-size: 2rem;
+  font-family: "Pacifico", cursive;
+  padding-top: 1.8rem;
+}
+/* //--------------------🦴 🦴 🦴  News / Good-est Dog 🦴 🦴 🦴--------------------// */
