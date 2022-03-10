@@ -36,8 +36,9 @@ const randomName = dogNameArr[Math.floor(Math.random() * dogNameArr.length)];
 //console.log(randomName);
 
 //render random name & image to page
-randomNameTitle.innerHTML = `Barking News! Today's Goodest Dog is ${randomName}`;
-
+randomNameTitle.innerHTML = `Barking News! Today's Goodest Dog is ${randomName}!`;
+randomNameTitle.style.margin = "4rem";
+randomNameTitle.style["font-size"] = "2rem";
 //fetch a random dog image from dog.ceo API
 function fetchRadomDogImg() {
   const dogAPI = "https://dog.ceo/api/breeds/image/random";
@@ -88,7 +89,6 @@ createProfileBtn.addEventListener("click", () => {
   if (!profile) {
     profileDiv.style.display = "block";
     console.log("see the profile");
-
   } else {
     profileDiv.style.display = "none";
     console.log("hide the profile");

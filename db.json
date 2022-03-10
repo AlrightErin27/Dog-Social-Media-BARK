@@ -6,7 +6,7 @@
       "breed": "German Shepard",
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
-      "likes": 6
+      "likes": 9
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "breed": "Golden Retriever",
       "image": "src/imgs/dog2.jpg",
       "caption": "My owner loves me.",
-      "likes": 38
+      "likes": 42
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "breed": "Chow Chow",
       "image": "src/imgs/dog3.jpg",
       "caption": "Is that a squirrel???",
-      "likes": 9
+      "likes": 14
     },
     {
       "id": 4,
