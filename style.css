@@ -27,7 +27,7 @@ body {
 }
 /* //--------------------🦴 🦴 🦴  News / Goodest Dog 🦴 🦴 🦴--------------------// */
 #news-div {
-  background-color: rgba(255, 0, 0, 0.733);
+  background-color: rgba(187, 0, 0, 0.787);
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -38,25 +38,25 @@ body {
   border-radius: 20px;
   margin: 0 2rem 0 2rem;
   z-index: 1000;
-  position: absolute;
+  position: fixed;
   top: 3rem;
   right: 8rem;
   text-align: center;
 
-  /* FLASHING BACKGROUND */
-  animation: blinkingBackground 0.2s infinite;
+  /* FLASHING BACKGROUND
+  animation: blinkingBackground 2s infinite; */
 }
-@keyframes blinkingBackground {
-  0% {
-    background-color: #f5f8f5;
+/* @keyframes blinkingBackground {
+  70% {
+    background-color: #5c0a0a;
   }
-  25% {
+  115% {
     background-color: #c01010;
   }
   100% {
     background-color: #ab2c2855;
   }
-}
+} */
 #news-div img {
   width: 250px;
   height: 200px;
@@ -68,3 +68,40 @@ body {
 }
 /* //--------------------🦴 🦴 🦴  Create User Section 🦴 🦴 🦴--------------------// */
 /* //--------------------🦴 🦴 🦴 Online Friends Section 🦴 🦴 🦴--------------------// */
+
+#friends-div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 2rem;
+  margin: 0 2rem 0 2rem;
+}
+.local-dog-card {
+  height: 60vh;
+  width: 250px;
+  background: white;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10%;
+}
+.local-dog-img {
+  width: 250px;
+  height: 200px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.like-name-div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+#online-gif {
+  height: 12px;
+  filter: invert(40%);
+}

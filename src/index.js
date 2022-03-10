@@ -108,8 +108,31 @@ function displayLocalDog(dog) {
   const localDogName = document.createElement("h2");
   localDogName.innerHTML = `@${dog.name}`;
 
+  //adding likes button
+  const likeBtn = document.createElement("button");
+  likeBtn.setAttribute("id", "like-button");
+  likeBtn.innerHTML = "Like";
+
   //✏️ put localDogName & localDogLikes into likeNameDiv
-  likeNameDiv.append(localDogLikes, localDogName);
+  likeNameDiv.append(localDogLikes, localDogName, likeBtn);
+
+  //create even for like button 🔥
+  likeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const updatedNumLikes = ++dog.likes;
+    console.log(updatedNumLikes);
+    //use patch method to change likes in db
+    fetch(`${localDogAPI}/${dog.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ likes: updatedNumLikes }),
+    })
+      .then((res) => res.json())
+      .then((data) => (localDogLikes.innerText = `likes: ${data.likes}`));
+  });
 
   //adding local dog caption
   const localDogCaption = document.createElement("p");
@@ -123,9 +146,21 @@ function displayLocalDog(dog) {
   comments.innerHTML = "Barks: ";
   commentsDiv.append(comments);
 
+  //create online gif
+  const onlineGif = document.createElement("img");
+  onlineGif.src = "src/imgs/online.gif";
+  onlineGif.alt = "src/imgs/online.gif";
+  onlineGif.setAttribute("id", "online-gif");
+
   //✏️ appending all to be rendered on page
   document.querySelector("#friends-div").append(localDogCard);
-  localDogCard.append(localDogImg, likeNameDiv, localDogCaption, commentsDiv);
+  localDogCard.append(
+    localDogImg,
+    onlineGif,
+    likeNameDiv,
+    localDogCaption,
+    commentsDiv
+  );
 }
 //render comments after loading dog profile cards
 function renderComments(comments) {
