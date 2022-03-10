@@ -6,7 +6,7 @@
       "breed": "German Shepard",
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
-      "likes": 6
+      "likes": 10
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "breed": "Chow Chow",
       "image": "src/imgs/dog3.jpg",
       "caption": "Is that a squirrel???",
-      "likes": 9
+      "likes": 17
     },
     {
       "id": 4,
@@ -41,7 +41,7 @@
       "likes": 9
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Romeo",
       "breed": "Miniature Dachshund",
       "image": "src/imgs/dog6.jpg",

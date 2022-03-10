@@ -81,20 +81,50 @@ fetch(localDogCommentsAPI)
 //creating dynamic JS to show form when button is clicked
 const profileDiv = document.querySelector("#profile-div");
 const createProfileBtn = document.querySelector("#create-profile-button");
-//create boolean to hide profile form until button is clicked
-let profile = true;
-createProfileBtn.addEventListener("click", () => {
-  profile = !profile;
-  if (!profile) {
-    profileDiv.style.display = "block";
-    console.log("see the profile");
+//create toggles to hide profile form until button is clicked
 
-  } else {
-    profileDiv.style.display = "none";
-    console.log("hide the profile");
-  }
+createProfileBtn.addEventListener("click", function () {
+  form.classList.toggle("hidden");
+  form.classList.toggle("form");
 });
+
+// createProfileBtn.addEventListener("click", function () {});
+
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const newName = document.querySelector("#name").value;
+  const image = document.querySelector("#image").value;
+  const caption = document.querySelector("#caption").value;
+  let newDogObject = {
+    name: newName,
+    image: image,
+    caption: caption,
+    likes: 0,
+  };
+
+  console.log(newDogObject);
+
+  fetch("http://localhost:3000/dogs", {
+    method: "POST",
+    headers: {
+      "content-type": "applications/json",
+      Accept: "applications/json",
+    },
+    body: JSON.stringify(newDogObject),
+  })
+    .then((res) => res.json())
+    .then(function (newDogObject) {
+      console.log(newDogObject);
+    });
+  displayLocalDog(newDogObject);
+  form.reset();
+});
+
 //grab dogs from local API
 function renderLocalDogs(dogs) {
   dogs.forEach(displayLocalDog);

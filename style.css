@@ -89,8 +89,7 @@ body {
   box-shadow: inset 0 100px 0 0 #000479;
   color: white;
 }
-#profile-div {
-}
+
 /* //--------------------🦴 🦴 🦴 Online Friends Section 🦴 🦴 🦴--------------------// */
 #friends-div {
   display: flex;
@@ -103,7 +102,7 @@ body {
   margin: 0 2rem 0 2rem;
 }
 .local-dog-card {
-  height: 60vh;
+  height: 70vh;
   width: 250px;
   background: white;
   padding-top: 20px;
@@ -113,7 +112,7 @@ body {
 }
 .local-dog-card p {
   font-family: "Gravitas One", cursive;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .local-dog-img {
   width: 250px;
@@ -143,4 +142,20 @@ body {
   background-color: grey;
   color: white;
   cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.form {
+  margin: auto;
+  width: 12.5%;
+  display: flex;
+  flex-direction: column;
+}
+.form label {
+  padding-top: 10px;
+}
+.form button {
+  margin-top: 15px;
+  width: 50%;
 }
