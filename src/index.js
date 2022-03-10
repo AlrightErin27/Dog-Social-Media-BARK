@@ -72,10 +72,10 @@ fetch(localDogAPI)
   .then(renderLocalDogs) //in Friends Section
   .catch((error) => console.log("😬", error));
 
-// fetch(localDogCommentsAPI)
-//   .then((res) => res.json())
-//   .then(bar)
-//   .catch((error) => console.log("😭", error));
+fetch(localDogCommentsAPI)
+  .then((res) => res.json())
+  .then(renderComments)
+  .catch((error) => console.log("😭", error));
 //--------------🦴 🦴 🦴       User Profile Section      🦴 🦴 🦴--------------//
 
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
@@ -108,22 +108,30 @@ function displayLocalDog(dog) {
   const localDogName = document.createElement("h2");
   localDogName.innerHTML = `@${dog.name}`;
 
-  //put localDogName & localDogLikes into likeNameDiv
+  //✏️ put localDogName & localDogLikes into likeNameDiv
   likeNameDiv.append(localDogLikes, localDogName);
 
   //adding local dog caption
   const localDogCaption = document.createElement("p");
   localDogCaption.innerHTML = dog.caption;
 
-  //adding barks (comments)
-  const barkDiv = document.createElement("div");
-  barkDiv.setAttribute("class", "bark-div");
-  const barks = document.createElement("h3");
-  barks.setAttribute("class", "bark-section");
-  barks.innerHTML = "Barks: ";
-  barkDiv.append(barks);
+  //✏️ adding barks (comments)
+  const commentsDiv = document.createElement("div");
+  commentsDiv.setAttribute("class", "comments-div");
+  const comments = document.createElement("h3");
+  comments.setAttribute("class", "comments-section");
+  comments.innerHTML = "Barks: ";
+  commentsDiv.append(comments);
 
-  ///appending all to be rendered on page
+  //✏️ appending all to be rendered on page
   document.querySelector("#friends-div").append(localDogCard);
-  localDogCard.append(localDogImg, likeNameDiv, localDogCaption, barkDiv);
+  localDogCard.append(localDogImg, likeNameDiv, localDogCaption, commentsDiv);
+}
+//render comments after loading dog profile cards
+function renderComments(comments) {
+  comments.forEach(displayComment);
+}
+//fxn displays singular comment
+function displayComment(comment) {
+  //
 }
