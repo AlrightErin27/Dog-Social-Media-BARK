@@ -158,10 +158,26 @@ function displayLocalDog(dog) {
   //✏️ adding barks (comments)
   const commentsDiv = document.createElement("div");
   commentsDiv.setAttribute("class", "comments-div");
-  const comments = document.createElement("h3");
-  comments.setAttribute("class", "comments-section");
-  comments.innerHTML = "Barks: ";
-  commentsDiv.append(comments);
+  const commentsTitle = document.createElement("h3");
+  commentsTitle.innerHTML = "Barks:";
+  commentsDiv.append(commentsTitle);
+  //----------------------------	🥵	🥵	🥵	🥵	🥵	🥵adding area for comments
+  const br = document.createElement("br");
+  const commentsForm = document.createElement("form");
+  commentsForm.setAttribute("method", "post");
+  commentsForm.setAttribute("action", "submit.php");
+  commentsForm.setAttribute("font-family", "Manrope, sans-serif");
+  commentsDiv.append(commentsForm);
+  const commentInput = document.createElement("input");
+  commentInput.setAttribute("type", "text");
+  commentInput.setAttribute("name", "commentInput");
+  commentInput.setAttribute("placeholder", "add comment here");
+  const commentSubmitBtn = document.createElement("input");
+  commentSubmitBtn.setAttribute("type", "submit");
+  commentSubmitBtn.setAttribute("value", "submit");
+  commentSubmitBtn.innerHTML = "Submit";
+  commentsForm.appendChild(commentInput);
+  commentsForm.appendChild(commentSubmitBtn);
 
   //create online gif
   const onlineGif = document.createElement("img");
