@@ -132,7 +132,7 @@ function displayLocalDog(dog) {
       body: JSON.stringify({ likes: updatedNumLikes }),
     })
       .then((res) => res.json())
-      .then((data) => (localDogLikes.innerText = `likes: ${data.likes}`));
+      .then((data) => (localDogLikes.innerText = `${data.likes} Likes`));
   });
 
   //adding local dog caption

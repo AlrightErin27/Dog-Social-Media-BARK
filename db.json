@@ -6,7 +6,8 @@
       "breed": "German Shepard",
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
-      "likes": 5
+      "likes": 6,
+      "Likes": 7
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "breed": "Golden Retriever",
       "image": "src/imgs/dog2.jpg",
       "caption": "My owner loves me.",
-      "likes": 34
+      "likes": 36,
+      "Likes": 39
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "breed": "Chow Chow",
       "image": "src/imgs/dog3.jpg",
       "caption": "Is that a squirrel???",
-      "likes": 5
+      "likes": 9,
+      "Likes": 7
     },
     {
       "id": 4,
@@ -30,7 +33,7 @@
       "breed": "Pomeranian",
       "image": "src/imgs/dog4.jpg",
       "caption": "Caught off guard lol.",
-      "likes": 0
+      "likes": 5
     },
     {
       "id": 5,
