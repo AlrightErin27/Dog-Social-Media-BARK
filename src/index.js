@@ -2,6 +2,7 @@
 
 //--------------🦴 🦴 🦴 Good-est Dog of the Day Section 🦴 🦴 🦴--------------//
 let breakingNews = true;
+
 const newsDiv = document.querySelector("#news-div");
 const randomNameTitle = document.querySelector("#random-name");
 const randomImg = document.querySelector("#random-img");
@@ -125,7 +126,6 @@ createProfileBtn.addEventListener("click", () => {
 
     newUserSubmitBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      // e.stopPropagation();
 
       let newDogObject = {
         name: nameInput.value,
@@ -135,28 +135,43 @@ createProfileBtn.addEventListener("click", () => {
         comments: [],
       };
 
-      console.log(newDogObject);
-
-      fetch("http://localhost:3000/dogs", {
+      fetch(`${localDogAPI}`, {
         method: "POST",
         headers: {
-          "content-type": "applications/json",
-          Accept: "applications/json",
+          "content-type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(newDogObject),
       })
         .then((res) => res.json())
         .then(displayLocalDog(newDogObject))
         .catch((err) => console.log("ERROR️🐕⚠️:", err));
+
       newUserForm.reset();
+    });
+
+    //create event for new object like button 🔥
+    likeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const updatedNumLikes = ++dog.likes;
+      console.log(updatedNumLikes);
+      //use patch method to change likes in db
+      fetch(`${localDogAPI}/${dog.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ likes: updatedNumLikes }),
+      })
+        .then((res) => res.json())
+        .then((data) => (localDogLikes.innerText = `${data.likes} Likes`));
     });
   } else {
     profileDiv.style.display = "none";
     console.log("hide the profile");
   }
 });
-/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
-/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
 
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
 //grab dogs from local API
@@ -197,7 +212,7 @@ function displayLocalDog(dog) {
   //✏️ put localDogName & localDogLikes into likeNameDiv
   likeNameDiv.append(localDogLikes, localDogName, likeBtn);
 
-  //create even for like button 🔥
+  //create event for like button 🔥
   likeBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const updatedNumLikes = ++dog.likes;
