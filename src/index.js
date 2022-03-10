@@ -53,7 +53,8 @@ function fetchRadomDogImg() {
 fetchRadomDogImg();
 
 //allow user to close breaking news div
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   breakingNews = !breakingNews;
   if (breakingNews) {
     newsDiv.style.display = "block";
@@ -77,7 +78,22 @@ fetch(localDogCommentsAPI)
   .then(renderComments)
   .catch((error) => console.log("😭", error));
 //--------------🦴 🦴 🦴       User Profile Section      🦴 🦴 🦴--------------//
+//creating dynamic JS to show form when button is clicked
+const profileDiv = document.querySelector("#profile-div");
+const createProfileBtn = document.querySelector("#create-profile-button");
+//create boolean to hide profile form until button is clicked
+let profile = true;
+createProfileBtn.addEventListener("click", () => {
+  profile = !profile;
+  if (!profile) {
+    profileDiv.style.display = "block";
+    console.log("see the profile");
 
+  } else {
+    profileDiv.style.display = "none";
+    console.log("hide the profile");
+  }
+});
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
 //grab dogs from local API
 function renderLocalDogs(dogs) {

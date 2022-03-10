@@ -67,6 +67,30 @@ body {
   margin: 10px;
 }
 /* //--------------------🦴 🦴 🦴  Create User Section 🦴 🦴 🦴--------------------// */
+#create-button-div {
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+#create-profile-button {
+  color: rgb(0, 2, 145);
+  border: 5px solid white;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Gravitas One", cursive;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #0008ffcd;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+#create-profile-button:hover {
+  box-shadow: inset 0 100px 0 0 #000479;
+  color: white;
+}
+#profile-div {
+}
 /* //--------------------🦴 🦴 🦴 Online Friends Section 🦴 🦴 🦴--------------------// */
 #friends-div {
   display: flex;
