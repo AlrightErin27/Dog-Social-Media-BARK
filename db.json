@@ -7,7 +7,10 @@
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
       "likes": 9,
-      "comments": ["You should have been dog of the Day!", "Handsome."]
+      "comments": [
+        "You should have been dog of the Day!",
+        "Handsome."
+      ]
     },
     {
       "id": 2,
@@ -16,7 +19,9 @@
       "image": "src/imgs/dog2.jpg",
       "caption": "Selfie Time! My owner loves me.",
       "likes": 20,
-      "comments": ["Sure they do! 😂"]
+      "comments": [
+        "Sure they do! 😂"
+      ]
     },
     {
       "id": 3,
@@ -25,7 +30,9 @@
       "image": "src/imgs/dog3.jpg",
       "caption": "Is that a squirrel???",
       "likes": 14,
-      "comments": ["WHERE??!?!"]
+      "comments": [
+        "WHERE??!?!"
+      ]
     },
     {
       "id": 4,
@@ -43,7 +50,9 @@
       "image": "src/imgs/dog5.jpg",
       "caption": "Look at my new toy!",
       "likes": 9,
-      "comments": ["I love toys!"]
+      "comments": [
+        "I love toys!"
+      ]
     },
     {
       "id": 5,
@@ -53,6 +62,15 @@
       "caption": "Just being little!",
       "likes": 3,
       "comments": []
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
     }
   ]
 }

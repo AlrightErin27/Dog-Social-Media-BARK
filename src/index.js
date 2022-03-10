@@ -90,7 +90,7 @@ createProfileBtn.addEventListener("click", () => {
 
     const newUserForm = document.createElement("form");
     newUserForm.setAttribute("method", "post");
-    newUserForm.setAttribute("action", "submit.php");
+    newUserForm.setAttribute("action", "submit");
     //newUserForm.setAttribute("font-family", "Manrope, sans-serif");
     profileDiv.append(newUserForm);
 
@@ -98,34 +98,65 @@ createProfileBtn.addEventListener("click", () => {
     const nameInput = document.createElement("input");
     nameInput.setAttribute("type", "text");
     nameInput.setAttribute("name", "nameInput");
+    nameInput.setAttribute("id", "name-input");
     nameInput.setAttribute("placeholder", "Name here...");
     newUserForm.appendChild(nameInput);
 
     const imgInput = document.createElement("input");
     imgInput.setAttribute("type", "text");
     imgInput.setAttribute("name", "imgInput");
+    imgInput.setAttribute("id", "img-input");
     imgInput.setAttribute("placeholder", "Image here...");
     newUserForm.appendChild(imgInput);
 
     const captionInput = document.createElement("input");
     captionInput.setAttribute("type", "text");
     captionInput.setAttribute("name", "captionInput");
+    captionInput.setAttribute("id", "caption-input");
     captionInput.setAttribute("placeholder", "Caption here...");
     newUserForm.appendChild(captionInput);
 
     const newUserSubmitBtn = document.createElement("input");
     newUserSubmitBtn.setAttribute("type", "submit");
     newUserSubmitBtn.setAttribute("value", "submit");
+    newUserSubmitBtn.setAttribute("id", "input-submit-button");
     newUserSubmitBtn.innerHTML = "Submit";
     newUserForm.appendChild(newUserSubmitBtn);
+
+    newUserSubmitBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      // e.stopPropagation();
+
+      let newDogObject = {
+        name: nameInput.value,
+        image: imgInput.value,
+        caption: captionInput.value,
+        likes: 0,
+        comments: [],
+      };
+
+      console.log(newDogObject);
+
+      fetch("http://localhost:3000/dogs", {
+        method: "POST",
+        headers: {
+          "content-type": "applications/json",
+          Accept: "applications/json",
+        },
+        body: JSON.stringify(newDogObject),
+      })
+        .then((res) => res.json())
+        .then(displayLocalDog(newDogObject))
+        .catch((err) => console.log("ERROR️🐕⚠️:", err));
+      newUserForm.reset();
+    });
   } else {
     profileDiv.style.display = "none";
     console.log("hide the profile");
   }
 });
-/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢JOSE NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
-/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢JOSE NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
-//////////////////JOSE NEW CODE^^^//////////////////////////////////////////////////////////////////////////////////
+/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
+/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
 
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
 //grab dogs from local API
@@ -249,43 +280,3 @@ function displayLocalDog(dog) {
     commentsDiv
   );
 }
-/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢JOSE NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
-// const form = document.getElementById("form");
-// const userProfileDiv = document.querySelector("#profile-div");
-// userProfileDiv.append(form);
-
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   e.stopPropagation();
-
-//   const newName = document.querySelector("#name").value;
-//   const image = document.querySelector("#image").value;
-//   const caption = document.querySelector("#caption").value;
-//   let newDogObject = {
-//     name: newName,
-//     image: image,
-//     caption: caption,
-//     likes: 0,
-//     comments: [],
-//   };
-
-//   console.log(newDogObject);
-
-//   fetch("http://localhost:3000/dogs", {
-//     method: "POST",
-//     headers: {
-//       "content-type": "applications/json",
-//       Accept: "applications/json",
-//     },
-//     body: JSON.stringify(newDogObject),
-//   })
-//     .then((res) => res.json())
-//     .then(function (newDogObject) {
-//       console.log(newDogObject);
-//     });
-//   displayLocalDog(newDogObject);
-//   form.reset();
-// });
-
-/////🟢🟢🟢🟢🟢////////////🟢🟢🟢🟢🟢JOSE NEW CODE🟢🟢🟢🟢🟢////////////////🟢🟢🟢🟢🟢/////////////////////////////////////
-//////////////////JOSE NEW CODE^^^//////////////////////////////////////////////////////////////////////////////////
