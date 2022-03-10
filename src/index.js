@@ -1,8 +1,11 @@
 //console.log("Is this thing on? 🎤");
 
 //--------------🦴 🦴 🦴 Good-est Dog of the Day Section 🦴 🦴 🦴--------------//
+let breakingNews = true;
+const newsDiv = document.querySelector("#news-div");
 const randomNameTitle = document.querySelector("#random-name");
 const randomImg = document.querySelector("#random-img");
+const closeBtn = document.querySelector("#close-button");
 const dogNameArr = [
   "Toby",
   "Oprah",
@@ -48,6 +51,16 @@ function fetchRadomDogImg() {
     .catch((err) => console.log("ERROR️‍🔥:", err));
 }
 fetchRadomDogImg();
+
+//allow user to close breaking news div
+closeBtn.addEventListener("click", () => {
+  breakingNews = !breakingNews;
+  if (breakingNews) {
+    newsDiv.style.display = "block";
+  } else {
+    newsDiv.style.display = "none";
+  }
+});
 
 //--------------🦴 🦴 🦴       User Profile Section      🦴 🦴 🦴--------------//
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
