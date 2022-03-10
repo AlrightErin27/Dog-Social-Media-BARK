@@ -62,5 +62,68 @@ closeBtn.addEventListener("click", () => {
   }
 });
 
+//--------------🦴 🦴 🦴       Fetch from Local API      🦴 🦴 🦴--------------//
+//fetch info from local API in db.json
+const localDogAPI = "http://localhost:3000/dogs";
+const localDogCommentsAPI = "http://localhost:3000/comments";
+
+fetch(localDogAPI)
+  .then((res) => res.json())
+  .then(renderLocalDogs) //in Friends Section
+  .catch((error) => console.log("😬", error));
+
+// fetch(localDogCommentsAPI)
+//   .then((res) => res.json())
+//   .then(bar)
+//   .catch((error) => console.log("😭", error));
 //--------------🦴 🦴 🦴       User Profile Section      🦴 🦴 🦴--------------//
+
 //--------------🦴 🦴 🦴         Friends Section         🦴 🦴 🦴--------------//
+//grab dogs from local API
+function renderLocalDogs(dogs) {
+  dogs.forEach(displayLocalDog);
+}
+//fxn displays singular dogs
+function displayLocalDog(dog) {
+  //create dog card profile
+  const localDogCard = document.createElement("div");
+  localDogCard.setAttribute("id", `${dog.id}`);
+  localDogCard.setAttribute("class", "local-dog-card");
+
+  //adding image to card
+  const localDogImg = document.createElement("img");
+  localDogImg.src = dog.image;
+  localDogImg.alt = dog.image;
+  localDogImg.setAttribute("class", "local-dog-img");
+
+  //add  container for likes
+  const likeNameDiv = document.createElement("div");
+  likeNameDiv.setAttribute("class", "like-name-div");
+
+  //adding local dog likes
+  const localDogLikes = document.createElement("h2");
+  localDogLikes.innerHTML = `${dog.likes} Likes`;
+
+  //adding local dog name
+  const localDogName = document.createElement("h2");
+  localDogName.innerHTML = `@${dog.name}`;
+
+  //put localDogName & localDogLikes into likeNameDiv
+  likeNameDiv.append(localDogLikes, localDogName);
+
+  //adding local dog caption
+  const localDogCaption = document.createElement("p");
+  localDogCaption.innerHTML = dog.caption;
+
+  //adding barks (comments)
+  const barkDiv = document.createElement("div");
+  barkDiv.setAttribute("class", "bark-div");
+  const barks = document.createElement("h3");
+  barks.setAttribute("class", "bark-section");
+  barks.innerHTML = "Barks: ";
+  barkDiv.append(barks);
+
+  ///appending all to be rendered on page
+  document.querySelector("#friends-div").append(localDogCard);
+  localDogCard.append(localDogImg, likeNameDiv, localDogCaption, barkDiv);
+}
