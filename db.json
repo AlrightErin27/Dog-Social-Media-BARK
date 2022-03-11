@@ -6,7 +6,10 @@
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
       "likes": 9,
-      "comments": ["You should have been dog of the Day!", "Handsome."]
+      "comments": [
+        "You should have been dog of the Day!",
+        "Handsome."
+      ]
     },
     {
       "id": 2,
@@ -14,7 +17,9 @@
       "image": "src/imgs/dog2.jpg",
       "caption": "Selfie Time! My owner loves me.",
       "likes": 21,
-      "comments": ["Sure they do! 😂"]
+      "comments": [
+        "Sure they do! 😂"
+      ]
     },
     {
       "id": 3,
@@ -22,7 +27,9 @@
       "image": "src/imgs/dog3.jpg",
       "caption": "Is that a squirrel???",
       "likes": 14,
-      "comments": ["WHERE??!?!"]
+      "comments": [
+        "WHERE??!?!"
+      ]
     },
     {
       "id": 4,
@@ -38,7 +45,33 @@
       "image": "src/imgs/dog5.jpg",
       "caption": "Look at my new toy!",
       "likes": 9,
-      "comments": ["I love toys!"]
+      "comments": [
+        "I love toys!"
+      ]
+    },
+    {
+      "name": "Harry",
+      "image": "https://purewows3.imgix.net/images/articles/2020_07/funny_dog_names_punny.jpg?auto=format,compress&cs=strip",
+      "caption": "Binging HP tonight.",
+      "likes": 0,
+      "comments": [],
+      "id": 6
+    },
+    {
+      "name": "QW",
+      "image": "FD",
+      "caption": "TTTT",
+      "likes": 0,
+      "comments": [],
+      "id": 7
+    },
+    {
+      "name": "GRQE",
+      "image": "grge",
+      "caption": "gggg",
+      "likes": 3,
+      "comments": [],
+      "id": 8
     }
   ]
 }

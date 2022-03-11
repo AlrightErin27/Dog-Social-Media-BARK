@@ -157,8 +157,9 @@ createProfileBtn.addEventListener("click", () => {
           .then((res) => res.json())
           .then(renderLocalDogs) //in Friends Section
           .catch((error) => console.log("😬", error));
+
+        newUserForm.reset();
       }
-      newUserForm.reset();
     });
   } else {
     profileDiv.style.display = "none";
