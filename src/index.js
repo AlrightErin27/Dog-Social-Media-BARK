@@ -87,12 +87,12 @@ createProfileBtn.addEventListener("click", () => {
   profile = !profile;
   if (!profile) {
     profileDiv.style.display = "block";
-    //console.log("see the profile");
+    console.log("see the profile");
 
     const newUserForm = document.createElement("form");
     newUserForm.setAttribute("method", "post");
     newUserForm.setAttribute("action", "submit");
-    newUserForm.setAttribute("class", "new-user-form");
+    //newUserForm.setAttribute("font-family", "Manrope, sans-serif");
     profileDiv.append(newUserForm);
 
     //create input for form
@@ -127,53 +127,31 @@ createProfileBtn.addEventListener("click", () => {
     newUserSubmitBtn.addEventListener("click", (e) => {
       e.preventDefault();
 
-      if (
-        nameInput.value === "" ||
-        imgInput.value === "" ||
-        captionInput.value === ""
-      ) {
-        alert("Need more new user info!");
-      } else {
-        let newDogObject = {
-          name: nameInput.value,
-          image: imgInput.value,
-          caption: captionInput.value,
-          likes: 0,
-          comments: [],
-        };
+      let newDogObject = {
+        name: nameInput.value,
+        image: imgInput.value,
+        caption: captionInput.value,
+        likes: 0,
+        comments: [],
+      };
 
-        fetch(`${localDogAPI}`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(newDogObject),
-        })
-          .then((res) => res.json())
-          .then(displayLocalDog(newDogObject))
-          .catch((err) => console.log("ERROR️🐕⚠️:", err));
-      }
-
-      newUserForm.reset();
-    });
-
-    //create event for new object like button 🔥
-    likeBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const updatedNumLikes = ++dog.likes;
-      console.log(updatedNumLikes);
-      //use patch method to change likes in db
-      fetch(`${localDogAPI}/${dog.id}`, {
-        method: "PATCH",
+      fetch(`${localDogAPI}`, {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "content-type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ likes: updatedNumLikes }),
+        body: JSON.stringify(newDogObject),
       })
         .then((res) => res.json())
-        .then((data) => (localDogLikes.innerText = `${data.likes} Likes`));
+        .catch((err) => console.log("ERROR️🐕⚠️:", err));
+
+      fetch(localDogAPI)
+        .then((res) => res.json())
+        .then(renderLocalDogs) //in Friends Section
+        .catch((error) => console.log("😬", error));
+
+      newUserForm.reset();
     });
   } else {
     profileDiv.style.display = "none";
@@ -285,7 +263,6 @@ function displayLocalDog(dog) {
   //append comment & submit button to form
   commentsForm.appendChild(commentInput);
   commentsForm.appendChild(commentSubmitBtn);
-  ////////////////////////////////////////////////////////////
 
   //create online gif
   const onlineGif = document.createElement("img");

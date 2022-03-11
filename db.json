@@ -13,7 +13,7 @@
       "name": "Lucky",
       "image": "src/imgs/dog2.jpg",
       "caption": "Selfie Time! My owner loves me.",
-      "likes": 20,
+      "likes": 21,
       "comments": ["Sure they do! 😂"]
     },
     {
@@ -29,7 +29,7 @@
       "name": "Rocko",
       "image": "src/imgs/dog4.jpg",
       "caption": "Caught off guard lol.",
-      "likes": 5,
+      "likes": 7,
       "comments": []
     },
     {
@@ -39,14 +39,6 @@
       "caption": "Look at my new toy!",
       "likes": 9,
       "comments": ["I love toys!"]
-    },
-    {
-      "name": "Connie",
-      "image": "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg",
-      "caption": "New profile. Who dis?",
-      "likes": 3,
-      "comments": [],
-      "id": 6
     }
   ]
 }
