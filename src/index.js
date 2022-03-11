@@ -224,14 +224,13 @@ function displayLocalDog(dog) {
   const commentsForm = document.createElement("form");
   commentsForm.setAttribute("method", "post");
   commentsForm.setAttribute("action", "submit.php");
-  commentsForm.setAttribute("font-family", "Manrope, sans-serif");
   commentsForm.setAttribute("id", "comment-input-area");
+  commentsForm.setAttribute("font-family", "Manrope, sans-serif");
   commentsDiv.append(commentsForm);
 
   //create input for form
   const commentInput = document.createElement("input");
   commentInput.setAttribute("type", "text");
-  commentInput.setAttribute("name", "commentInput");
   commentInput.setAttribute("id", "comment-input-text");
   commentInput.setAttribute("placeholder", "add comment here");
 
@@ -255,8 +254,7 @@ function displayLocalDog(dog) {
       tempArr.push(dog.comments[i]);
     }
     tempArr.push(newComment);
-
-    const newLi = tempArr[tempArr.length - 1];
+    //console.log(tempArr);
 
     fetch(`${localDogAPI}/${dog.id}`, {
       method: "PATCH",
@@ -267,13 +265,10 @@ function displayLocalDog(dog) {
       body: JSON.stringify({ comments: tempArr }),
     })
       .then((res) => res.json())
+      // .then((data) => cList.innerHTML(tempArr))
       .catch((err) => console.log("ERROR️🔥🔥🔥:", err));
 
     commentsForm.reset();
-    fetch(localDogAPI)
-      .then((res) => res.json())
-      // .then(renderCommentsArr(newComment))
-      .catch((error) => console.log("😬", error));
   });
 
   //create online gif
