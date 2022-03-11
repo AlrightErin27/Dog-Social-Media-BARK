@@ -246,14 +246,14 @@ function displayLocalDog(dog) {
   commentSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let newComment = commentInput.value;
-
     let tempArr = [];
 
     for (let i = 0; i < dog.comments.length; i++) {
       tempArr.push(dog.comments[i]);
     }
     tempArr.push(newComment);
-    console.log(tempArr);
+    //console.log(tempArr);
+
     fetch(`${localDogAPI}/${dog.id}`, {
       method: "PATCH",
       headers: {
@@ -263,6 +263,7 @@ function displayLocalDog(dog) {
       body: JSON.stringify({ comments: tempArr }),
     })
       .then((res) => res.json())
+      // .then((data) => cList.innerHTML(tempArr))
       .catch((err) => console.log("ERROR️🔥🔥🔥:", err));
   });
   //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
