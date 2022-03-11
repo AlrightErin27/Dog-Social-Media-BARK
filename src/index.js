@@ -256,7 +256,7 @@ function displayLocalDog(dog) {
     }
     tempArr.push(newComment);
 
-    const newLi = String(tempArr[tempArr.length - 1]);
+    const newLi = tempArr[tempArr.length - 1];
 
     fetch(`${localDogAPI}/${dog.id}`, {
       method: "PATCH",
@@ -270,6 +270,10 @@ function displayLocalDog(dog) {
       .catch((err) => console.log("ERROR️🔥🔥🔥:", err));
 
     commentsForm.reset();
+    fetch(localDogAPI)
+      .then((res) => res.json())
+      // .then(renderCommentsArr(newComment))
+      .catch((error) => console.log("😬", error));
   });
 
   //create online gif
