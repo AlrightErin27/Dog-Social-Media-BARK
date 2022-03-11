@@ -58,20 +58,12 @@
       "id": 6
     },
     {
-      "name": "QW",
-      "image": "FD",
-      "caption": "TTTT",
+      "name": "HANK",
+      "image": "https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445",
+      "caption": "HANK",
       "likes": 0,
       "comments": [],
       "id": 7
-    },
-    {
-      "name": "GRQE",
-      "image": "grge",
-      "caption": "gggg",
-      "likes": 3,
-      "comments": [],
-      "id": 8
     }
   ]
 }

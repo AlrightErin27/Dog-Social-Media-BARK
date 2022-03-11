@@ -76,9 +76,10 @@ fetch(localDogAPI)
   .catch((error) => console.log("😬", error));
 
 //--------------🦴 🦴 🦴       User Profile Section      🦴 🦴 🦴--------------//
-//creating dynamic JS to show form when button is clicked
-const profileDiv = document.querySelector("#profile-div");
+//form when button is clicked
+const hiddenForm = document.querySelector("#hidden-form");
 const createProfileBtn = document.querySelector("#create-profile-button");
+
 //create boolean to hide profile form until button is clicked
 let profile = true;
 
@@ -86,63 +87,33 @@ let profile = true;
 createProfileBtn.addEventListener("click", () => {
   profile = !profile;
   if (!profile) {
-    profileDiv.style.display = "block";
+    hiddenForm.style.display = "block";
     console.log("see the profile");
 
-    const newUserForm = document.createElement("form");
-    newUserForm.setAttribute("method", "post");
-    newUserForm.setAttribute("action", "submit");
-    //newUserForm.setAttribute("font-family", "Manrope, sans-serif");
-    profileDiv.append(newUserForm);
-
-    //create input for form
-    const nameInput = document.createElement("input");
-    nameInput.setAttribute("type", "text");
-    nameInput.setAttribute("name", "nameInput");
-    nameInput.setAttribute("id", "name-input");
-    nameInput.setAttribute("placeholder", "Name here...");
-    newUserForm.appendChild(nameInput);
-
-    const imgInput = document.createElement("input");
-    imgInput.setAttribute("type", "text");
-    imgInput.setAttribute("name", "imgInput");
-    imgInput.setAttribute("id", "img-input");
-    imgInput.setAttribute("placeholder", "Image here...");
-    newUserForm.appendChild(imgInput);
-
-    const captionInput = document.createElement("input");
-    captionInput.setAttribute("type", "text");
-    captionInput.setAttribute("name", "captionInput");
-    captionInput.setAttribute("id", "caption-input");
-    captionInput.setAttribute("placeholder", "Caption here...");
-    newUserForm.appendChild(captionInput);
-
-    const newUserSubmitBtn = document.createElement("input");
-    newUserSubmitBtn.setAttribute("type", "submit");
-    newUserSubmitBtn.setAttribute("value", "submit");
-    newUserSubmitBtn.setAttribute("id", "input-submit-button");
-    newUserSubmitBtn.innerHTML = "Submit";
-    newUserForm.appendChild(newUserSubmitBtn);
+    const hiddenImgInput = document.querySelector("#hidden-image");
+    const hiddenCaptionInput = document.querySelector("#hidden-caption");
+    const hiddenNameInput = document.querySelector("#hidden-name");
+    const newUserSubmitBtn = document.querySelector("#hidden-submit-button");
 
     newUserSubmitBtn.addEventListener("click", (e) => {
       e.preventDefault();
 
       let newDogObject = {
-        name: nameInput.value,
-        image: imgInput.value,
-        caption: captionInput.value,
+        name: hiddenNameInput.value,
+        image: hiddenImgInput.value,
+        caption: hiddenCaptionInput.value,
         likes: 0,
         comments: [],
       };
 
       if (
-        nameInput.value === "" ||
-        imgInput.value === "" ||
-        captionInput.value === ""
+        hiddenNameInput.value === "" ||
+        hiddenImgInput.value === "" ||
+        hiddenCaptionInput.value === ""
       ) {
         alert("Need more new user information.");
       } else {
-        fetch(`${localDogAPI}`, {
+        fetch(localDogAPI, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -158,11 +129,11 @@ createProfileBtn.addEventListener("click", () => {
           .then(renderLocalDogs) //in Friends Section
           .catch((error) => console.log("😬", error));
 
-        newUserForm.reset();
+        hiddenForm.reset();
       }
     });
   } else {
-    profileDiv.style.display = "none";
+    hiddenForm.style.display = "none";
     console.log("hide the profile");
   }
 });
