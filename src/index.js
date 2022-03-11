@@ -243,6 +243,32 @@ function displayLocalDog(dog) {
   commentsForm.appendChild(commentInput);
   commentsForm.appendChild(commentSubmitBtn);
 
+  commentSubmitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let newComment = commentInput.value;
+
+    let tempArr = [];
+
+    for (let i = 0; i < dog.comments.length; i++) {
+      tempArr.push(dog.comments[i]);
+    }
+    tempArr.push(newComment);
+    console.log(tempArr);
+    fetch(`${localDogAPI}/${dog.id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ comments: tempArr }),
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log("ERROR️🔥🔥🔥:", err));
+  });
+  //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
+  //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
+  //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
+
   //create online gif
   const onlineGif = document.createElement("img");
   onlineGif.src = "src/imgs/online.gif";

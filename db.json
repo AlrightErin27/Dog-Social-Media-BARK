@@ -6,7 +6,7 @@
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
       "likes": 9,
-      "comments": ["You should have been dog of the Day!", "Handsome."]
+      "comments": ["Looking handsome!"]
     },
     {
       "id": 2,
@@ -38,7 +38,7 @@
       "image": "src/imgs/dog5.jpg",
       "caption": "Look at my new toy!",
       "likes": 9,
-      "comments": ["I love toys!"]
+      "comments": ["I love toys too!"]
     },
     {
       "name": "Harry",
