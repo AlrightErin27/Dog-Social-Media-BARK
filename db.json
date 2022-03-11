@@ -6,9 +6,7 @@
       "image": "src/imgs/dog1.jpg",
       "caption": "Chilling at my front porch.",
       "likes": 10,
-      "comments": [
-        "Looking handsome!"
-      ]
+      "comments": ["Looking handsome!"]
     },
     {
       "id": 2,
@@ -28,9 +26,7 @@
       "image": "src/imgs/dog3.jpg",
       "caption": "Is that a squirrel???",
       "likes": 14,
-      "comments": [
-        "WHERE??!?!"
-      ]
+      "comments": ["WHERE??!?!"]
     },
     {
       "id": 4,
@@ -46,18 +42,14 @@
       "image": "src/imgs/dog5.jpg",
       "caption": "Look at my new toy!",
       "likes": 9,
-      "comments": [
-        "I love toys too!"
-      ]
+      "comments": ["I love toys too!"]
     },
     {
       "name": "Harry",
       "image": "https://purewows3.imgix.net/images/articles/2020_07/funny_dog_names_punny.jpg?auto=format,compress&cs=strip",
       "caption": "Binging HP tonight.",
       "likes": 1,
-      "comments": [
-        "The boy who lived! Come TO DIE!"
-      ],
+      "comments": ["The boy who lived! Come TO DIE!"],
       "id": 6
     },
     {
