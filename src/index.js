@@ -224,19 +224,21 @@ function displayLocalDog(dog) {
   const commentsForm = document.createElement("form");
   commentsForm.setAttribute("method", "post");
   commentsForm.setAttribute("action", "submit.php");
+  commentsForm.setAttribute("id", "comment-input-area");
   commentsForm.setAttribute("font-family", "Manrope, sans-serif");
   commentsDiv.append(commentsForm);
 
   //create input for form
   const commentInput = document.createElement("input");
   commentInput.setAttribute("type", "text");
-  commentInput.setAttribute("name", "commentInput");
+  commentInput.setAttribute("id", "comment-input-text");
   commentInput.setAttribute("placeholder", "add comment here");
 
   //create submit btn for form
   const commentSubmitBtn = document.createElement("input");
   commentSubmitBtn.setAttribute("type", "submit");
   commentSubmitBtn.setAttribute("value", "submit");
+  commentSubmitBtn.setAttribute("id", "comment-submit-button");
   commentSubmitBtn.innerHTML = "Submit";
 
   //append comment & submit button to form
@@ -265,10 +267,9 @@ function displayLocalDog(dog) {
       .then((res) => res.json())
       // .then((data) => cList.innerHTML(tempArr))
       .catch((err) => console.log("ERROR️🔥🔥🔥:", err));
+
+    commentsForm.reset();
   });
-  //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
-  //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
-  //////////////////////////////"😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊""😊"//////////////
 
   //create online gif
   const onlineGif = document.createElement("img");
