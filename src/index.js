@@ -135,22 +135,29 @@ createProfileBtn.addEventListener("click", () => {
         comments: [],
       };
 
-      fetch(`${localDogAPI}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(newDogObject),
-      })
-        .then((res) => res.json())
-        .catch((err) => console.log("ERROR️🐕⚠️:", err));
+      if (
+        nameInput.value === "" ||
+        imgInput.value === "" ||
+        captionInput.value === ""
+      ) {
+        alert("Need more new user information.");
+      } else {
+        fetch(`${localDogAPI}`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(newDogObject),
+        })
+          .then((res) => res.json())
+          .catch((err) => console.log("ERROR️🐕⚠️:", err));
 
-      fetch(localDogAPI)
-        .then((res) => res.json())
-        .then(renderLocalDogs) //in Friends Section
-        .catch((error) => console.log("😬", error));
-
+        fetch(localDogAPI)
+          .then((res) => res.json())
+          .then(renderLocalDogs) //in Friends Section
+          .catch((error) => console.log("😬", error));
+      }
       newUserForm.reset();
     });
   } else {
